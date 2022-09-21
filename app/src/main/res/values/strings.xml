@@ -2,7 +2,6 @@
     <string name="app_name">My Application</string>
     <string name="title">Informe os três lados do triângulo</string>
     <string name="ladoA">Informe o lado A:</string>
-
     <string name="ladoB">Informe o lado B:</string>
     <string name="ladoC">Informe o lado C:</string>
     <string name="button">CALCULATE</string>

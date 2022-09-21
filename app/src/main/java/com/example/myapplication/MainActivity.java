@@ -12,32 +12,41 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText weight, height;
-    TextView result;
+    EditText ladoA, ladoB, ladoC;
     Button calculate;
-    float IMC;
+    TextView result;
+
+    float a, b, c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // shows the content on the screen
+        setContentView(R.layout.activity_main);
 
-        weight = (EditText) findViewById(R.id.ladoA);
-        height = (EditText) findViewById(R.id.ladoB);
+        ladoA = (EditText) findViewById(R.id.ladoA);
+        ladoB = (EditText) findViewById(R.id.ladoB);
+        ladoC = (EditText) findViewById(R.id.ladoC);
+
         calculate = (Button) findViewById(R.id.button);
+
         result = (TextView) findViewById(R.id.result);
 
-        calculate.setOnClickListener(new View.OnClickListener(){
-                                         @Override
-                                         public void onClick(View view) {
-                                             float weightNumber = Float.parseFloat(weight.getText().toString());
-                                             float heightNumber = Float.parseFloat(height.getText().toString());
+        calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                a = Float.parseFloat(ladoA.getText().toString());
+                b = Float.parseFloat(ladoB.getText().toString());
+                c = Float.parseFloat(ladoC.getText().toString());
 
-                                             IMC = weightNumber / (heightNumber * heightNumber);
-                                             DecimalFormat decimal = new DecimalFormat("#,###.00");
-                                             result.setText("Your IMC is: " + decimal.format(IMC));
-                                         }
-                                     }
-        );
+                if(((a + b) > c) && ((a + c) > b) && ((b + c) > a)) {
+                    result.setText("Forma um triângulo");
+                }else{
+                    result.setText("Não é um triângulo");
+                }
+
+            }
+        });
+
     }
+
 }
