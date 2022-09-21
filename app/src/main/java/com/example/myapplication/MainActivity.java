@@ -39,7 +39,18 @@ public class MainActivity extends AppCompatActivity {
                 c = Float.parseFloat(ladoC.getText().toString());
 
                 if(((a + b) > c) && ((a + c) > b) && ((b + c) > a)) {
-                    result.setText("Forma um triângulo");
+                    if ( a == b && b == c){
+                        result.setText("É um triângulo Equilátero");
+                    }
+
+                    else if( a == b || a == c || c == b){
+                        result.setText("É um triângulo Isósceles");
+                    }
+
+                    else{
+                        result.setText("É um triângulo Escaleno");
+                    }
+
                 }else{
                     result.setText("Não é um triângulo");
                 }
